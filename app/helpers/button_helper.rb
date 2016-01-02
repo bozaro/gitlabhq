@@ -55,4 +55,19 @@ module ButtonHelper
       },
       type: :button
   end
+
+  def svn_clone_button(project)
+    klass = 'btn js-protocol-switch'
+    klass << ' active'      if default_clone_protocol == 'svn'
+
+    content_tag :button, 'SVN',
+      class: klass,
+      data: {
+        clone: project.svn_url_to_repo,
+        container: 'body',
+        html: 'true',
+        title: ''
+      },
+      type: :button
+  end
 end

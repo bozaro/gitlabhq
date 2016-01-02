@@ -667,6 +667,10 @@ class Project < ActiveRecord::Base
     url_to_repo
   end
 
+  def svn_url_to_repo
+    "svn://#{Gitlab.config.gitlab.host}/#{path_with_namespace}"
+  end
+
   def http_url_to_repo
     "#{web_url}.git"
   end
